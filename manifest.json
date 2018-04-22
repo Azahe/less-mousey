@@ -1,21 +1,8 @@
 {
-  "name": "Getting Started Example",
+  "name": "Less mousey",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "permissions": [
-    "activeTab",
-    "declarativeContent",
-    "storage"
-  ],
-  "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
-  },
-  "options_page": "options.html",
+  "description": "Open google search results with single button on keyboard!",
   "page_action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "16": "images/get_started16.png",
       "32": "images/get_started32.png",
@@ -32,11 +19,13 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*",
-        "https://www.google.pl/*"
+        "*://*/search?*"
+      ],
+      "include_globs": [
+        "*www.google.*"
       ],
       "js": [
-        "myscript.js"
+        "listener.js"
       ]
     }
   ],
